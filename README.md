@@ -27,24 +27,17 @@ If you use our models or code, please cite our work:
 ```
 
 
+## Preprocessing
 
-## Outline
+In order to train the dense retrieval models, the data needs to be preprocessed. For training and retrieval we
+split up the documents into their paragraphs.
 
-
-```
-[
-    label (0/1),
-    claim_id,
-    passage_id,
-    claim_text,
-    passage_text
-]
-```
-
-- ``./preprocessing/coliee19_task2_create_train_input.py``: preprocessing for the patent train dataset from the COLIEE2019 Task 2 for BERT fine-tuning
+- ``./preprocessing/preprocess_finetune_data_dpr_task1.py``: preprocess the COLIEE Task 1 paragraph-level labels for training the DPR model
 
 ```bash
-python coliee19_task2_create_train.py  --train-dir /home/data/coliee/task2/train --output-dir /home/data/coliee/task2/ouput 
+python preprocess_finetune_data_dpr_task1.py  --train-dir /home/data/coliee/task2/train --output-dir /home/data/coliee/task2/ouput 
 ```
 
-### Model
+
+
+## Model
