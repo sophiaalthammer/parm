@@ -1,0 +1,25 @@
+{
+   "settings":{
+      "index":{
+         "number_of_shards":1,
+         "number_of_replicas":1
+      }
+   },
+   "mappings":{
+      "properties":{
+         "application_in_training":{
+            "type":"keyword"
+         },
+         "para_num":{
+            "type":"keyword"
+         },
+         "content":{
+            "type":"text",
+            "fielddata":true,
+            "term_vector":"with_positions_offsets_payloads",
+            "store":true,
+            "analyzer":"whitespace"
+         }
+      }
+   }
+}
