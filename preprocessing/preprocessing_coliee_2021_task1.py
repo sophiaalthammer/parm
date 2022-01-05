@@ -189,11 +189,11 @@ if __name__ == "__main__":
     label_file_val = '/mnt/c/Users/salthamm/Documents/phd/data/coliee2021/task1/val/val_labels.json'
     label_file_test = '/mnt/c/Users/salthamm/Documents/phd/data/coliee2021/task1/test/test_no_labels.json'
 
-    #lengths, dict_paragraphs, failed_files = read_in_para_lengths(corpus_dir, output_dir)
-    #label_train = preprocess_label_file(label_file)
+    lengths, dict_paragraphs, failed_files = read_in_para_lengths(corpus_dir, output_dir)
+    label_train = preprocess_label_file(label_file)
 
-    #analyze_corpus_in_numbers(lengths, dict_paragraphs, label_train, output_dir)
-    #intro_often, summ_often, para_often = analyze_text_passages(dict_paragraphs, 50)
+    analyze_corpus_in_numbers(lengths, dict_paragraphs, label_train, output_dir)
+    intro_often, summ_often, para_often = analyze_text_passages(dict_paragraphs, 50)
 
     # in read in docs the non-informative intro from intro_often, and summaries from summary_often are removed
     dict_paragraphs, failed_files = read_in_docs(corpus_dir, output_dir, pickle_dir, removal=True)

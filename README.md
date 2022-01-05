@@ -117,24 +117,21 @@ python representation_aggregation.py
 
 Preprocess COLIEE Task 1 data for dense retrieval
 
+- ``./preprocessing/preprocess_coliee_2021_task1.py``: preprocess the COLIEE Task 1 dataset by removing non-English text, removing non-informative summaries, removing tabs etc
+
 Preprocess [CaseLaw collection](https://github.com/ielab/ussc-caselaw-collection)
 
-# Preprocess data for training the dense retrieval model
+- ``./preprocessing/caselaw_stat_corpus.py``: preprocess the CaseLaw collection 
+
+### Preprocess data for training the dense retrieval model
 
 In order to train the dense retrieval models, the data needs to be preprocessed. For training and retrieval we
 split up the documents into their paragraphs.
 
-- ``./preprocessing/preprocess_finetune_data_dpr_task1.py``: preprocess the COLIEE Task 1 paragraph-level labels for training the DPR model
+- ``./preprocessing/preprocess_finetune_data_dpr_task1.py``: preprocess the COLIEE Task 1 document-level labels for training the DPR model
 
-```bash
-python preprocess_finetune_data_dpr_task1.py  --train-dir /home/data/coliee/task2/train --output-dir /home/data/coliee/task2/ouput 
-```
+- ``./preprocessing/preprocess_finetune_data_dpr.py``: preprocess the COLIEE Task 2 paragraph-level labels for training the DPR model
 
-- ``./preprocessing/preprocess_finetune_data_dpr_task1.py``: preprocess the COLIEE Task 1 paragraph-level labels for training the DPR model
-
-```bash
-python preprocess_finetune_data_dpr_task1.py  --train-dir /home/data/coliee/task2/train --output-dir /home/data/coliee/task2/ouput 
-```
 
 
 
