@@ -264,21 +264,6 @@ def main(args):
 
     retriever = DenseRetriever(encoder, args.batch_size, tensorizer, index)
 
-    # index all passages
-    ctx_files_pattern = args.encoded_ctx_file
-    input_paths = glob.glob(ctx_files_pattern)
-
-    index_path = "_".join(input_paths[0].split("_")[:-1])
-    if args.save_or_load_index and (
-        os.path.exists(index_path) or os.path.exists(index_path + ".index.dpr")
-    ):
-        retriever.index.deserialize_from(index_path)
-    else:
-        logger.info("Reading all passages data from files: %s", input_paths)
-        retriever.index.index_data(input_paths)
-
-        if args.save_or_load_index:
-            retriever.index.serialize(index_path)
     # get questions & answers
     questions = []
     question_answers = []
@@ -316,13 +301,14 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--ctx_file",
-        required=True,
+        required=False,
         type=str,
         default=None,
         help="All passages file in the tsv format: id \\t passage_text \\t title",
     )
     parser.add_argument(
         "--encoded_ctx_file",
+        required=False,
         type=str,
         default=None,
         help="Glob path to encoded passages (from generate_dense_embeddings tool)",

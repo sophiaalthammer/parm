@@ -288,7 +288,7 @@ def aggregate_eval(encoded_ctx_file, encoded_qa_file, output_file, label_file, a
         pickle.dump(run_scores_emb_agg, f)
 
     # then evaluate run with evaluation of whole document runs right?
-    #ranking_eval(qrels, run_scores_emb_agg, output_dir, output_file_name)
+    ranking_eval(qrels, run_scores_emb_agg, output_dir, output_file_name)
 
 
 def main(args):
@@ -332,9 +332,9 @@ if __name__ == "__main__":
         required=True,
         type=str,
         default='sum',
-        choices = ['sum', 'avg', 'max', 'min', 'cnn', 'ffn', 'trans', 'vrrf', 'vscores', 'vranks'],
+        choices = ['sum', 'avg', 'max', 'min', 'vrrf', 'vscores', 'vranks'],
         help="Aggregation mode for aggregating the embedding representations of query and candidate documents:"
-             "choose between sum/max/min/avg/cnn/ffn/trans",
+             "choose between sum/max/min/avg/vrrf/vscores/vranks",
     )
     parser.add_argument(
         "--candidate_mode",
